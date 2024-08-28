@@ -25,8 +25,10 @@ pipeline {
                     }
 
                     echo "Pushing latest tag"
-                    sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${dockerHubUser}/${DOCKER_IMAGE}:latest"
-                    sh "docker push ${dockerHubUser}/${DOCKER_IMAGE}:latest"
+                    withCredentials([usernamePassword(credentialsId: "dockerHub", passwordVariable: "dockerHubPass", usernameVariable: "dockerHubUser")]) {
+                        sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${dockerHubUser}/${DOCKER_IMAGE}:latest"
+                        sh "docker push ${dockerHubUser}/${DOCKER_IMAGE}:latest"
+                    }
                 }
             }
         }
