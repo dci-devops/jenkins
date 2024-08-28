@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "myapp"
+        DOCKER_IMAGE = "jenkins"
         DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
 
@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     echo "Building the Docker image"
-                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}")
+                    sh "sudo docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} https://github.com/dci-devops/jenkins.git"
                 }
             }
         }
