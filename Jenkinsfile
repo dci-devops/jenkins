@@ -25,8 +25,8 @@ pipeline {
                     }
 
                     echo "Pushing latest tag"
-                    sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest"
-                    sh "docker push dcidevops/${DOCKER_IMAGE}:latest"
+                    sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${dockerHubUser}/${DOCKER_IMAGE}:latest"
+                    sh "docker push ${dockerHubUser}/${DOCKER_IMAGE}:latest"
                 }
             }
         }
