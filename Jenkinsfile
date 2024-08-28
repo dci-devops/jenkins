@@ -44,14 +44,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            sh "docker logout"
-        }
-        failure {
-            echo "Pipeline failed. Performing cleanup..."
-            // Add cleanup steps here
-        }
-    }
 }
