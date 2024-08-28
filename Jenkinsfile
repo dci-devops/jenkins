@@ -15,7 +15,7 @@ pipeline {
                     sh "docker push ${env.dockerHubUser}/jenkins:latest"
                 }
             }
-        }
+        
 
         stage ("Deploy") {
             steps {
@@ -23,5 +23,5 @@ pipeline {
                 sh "sudo docker compose down && docker compose up -d"
             }
         }
-    }
+    
 }
