@@ -17,7 +17,7 @@ COPY . /app/jenkins
 EXPOSE 8000
 
 # Apply migrations to set up the database (SQLite)
-RUN python manage.py migrate
+RUN python3 manage.py migrate
 
 # Run the Django application
-CMD python /app/jenkins/manage.py runserver 0.0.0.0:8000
+CMD python3 /app/jenkins/manage.py runserver 0.0.0.0:8000
