@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     echo "Building the Docker image"
-                    sh "sudo docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} https://github.com/dci-devops/jenkins.git"
+                    sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} https://github.com/dci-devops/jenkins.git"
                 }
             }
         }
